@@ -6,21 +6,21 @@ conn = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:
 # Veritabanı bağlantısı üzerinde bir cursor oluştur
 cursor = conn.cursor()
 
-# Kullanıcıdan sdp kodunu al
-sdp_kod = input("SDP Kodu: ")
+# Kullanıcıdan dosya kodunu al
+dosya_kodu = input("Dosya Kodu: ")
 
 # SQL sorgusu ile verileri seç
-query = "SELECT Kanunlar FROM YourTableName WHERE SDP_Kod = ?"
-cursor.execute(query, sdp_kod)
+query = "SELECT [Konu Adı] FROM sdp WHERE [Dosya Kodu] = ?"
+cursor.execute(query, dosya_kodu)
 
 # Sonucu al
 result = cursor.fetchone()
 
 # Sonucu yazdır
 if result:
-    print("Kanunlar: ", result[0])
+    print("Konu Adı: ", result[0])
 else:
-    print("Belirtilen SDP koduna sahip bir giriş bulunamadı.")
+    print("Belirtilen dosya koduna sahip bir giriş bulunamadı.")
 
 # Bağlantıyı kapat
 cursor.close()
