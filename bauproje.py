@@ -10,15 +10,19 @@ cursor = conn.cursor()
 dosya_kodu = input("Dosya Kodu: ")
 
 # SQL sorgusu ile verileri seç
-query = "SELECT [Konu Adı] FROM sdp WHERE [Dosya Kodu] = ?"
+query = "SELECT [Konu Adı], [Saklama Suresi], [Saklama Kodu], [Saklama Kodu] FROM sdp WHERE [Dosya Kodu] = ?"
 cursor.execute(query, dosya_kodu)
 
-# Sonucu al
-result = cursor.fetchone()
+# Sonuçları al
+results = cursor.fetchall()
 
-# Sonucu yazdır
-if result:
-    print("Konu Adı: ", result[0])
+# Sonuçları yazdır
+if results:
+    for row in results:
+        print("Konu Adı:", row[0])
+        print("Saklama Suresi:", row[1])
+        print("Saklama Kodu :", row[2])
+        print("Nihai Sonuc:", row[3])
 else:
     print("Belirtilen dosya koduna sahip bir giriş bulunamadı.")
 
