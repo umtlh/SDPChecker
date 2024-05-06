@@ -5,7 +5,7 @@ import pypyodbc
 def dosya_bilgisi_al():
     dosya_kodu = dosya_kodu_entry.get()
     try:
-        conn = pypyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=D:\umtlh\Belgeler\SDPChecker\sdpbau.accdb;')
+        conn = pypyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=D:\umtlh\Belgeler\SDPChecker\sdpdb.accdb;')
         cursor = conn.cursor()
         cursor.execute("SELECT Konu_Adı, Saklama_Suresi, Saklama_Kodu, Nihai_Sonuc FROM sdp WHERE Dosya_Kodu = ?", (dosya_kodu,))
         row = cursor.fetchone()

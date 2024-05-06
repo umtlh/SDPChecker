@@ -3,7 +3,7 @@ import pypyodbc
 def dosya_bilgisi_al(dosya_kodu):
     try:
         # Veritabanına bağlanma
-        conn = pypyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=D:\umtlh\Belgeler\SDPChecker\sdpbau.accdb;')
+        conn = pypyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=D:\umtlh\Belgeler\SDPChecker\sdpdb.accdb;')
         cursor = conn.cursor()
 
         # SQL sorgusu ile dosya bilgisini al
